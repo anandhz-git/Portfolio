@@ -54,28 +54,70 @@
       padding-top: 2.5em;
       }
 
-      @media (max-width: 768px) {
-        nav.navbar {
-          flex-direction: column;
-          padding: 1.5em 4%;
-        }
-        .nav-links {
-          width: 100%;
-          padding: 1em 0;
-          border-radius: 0;
-          position: static;
-          background: none;
-          border: none;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .nav-links a {
-          margin: 1em 0;
-          font-size: 2.2em;
-        }
-      }
-    }
+ /* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 1em;
+  font-size: 2.5em;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fff0d1;
+  border-radius: 5px;
+  transition: 0.4s;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    padding: 2rem;
+    background-color: rgb(255, 108, 29); 
+    border-radius: 3em;
+    border: 2px solid #fff1f1ce;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+    z-index: 999;
+  }
+
+  /* When dropdown is active */
+  .nav-links.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    color: #000000; /* contrast for cream background */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #ff6c1d; /* accent hover color */
+  }
+}
+
 
     body {
       width: 100%;
@@ -114,24 +156,8 @@
       border-bottom: solid 2px #fff;
     }
 
-    @media(max-width:995px){
-      .nav-links{
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 40%;
-        padding: 2rem;
-        border: solid 2px #ffe8b6;
-        border-radius: 2em;
-        background-color: rgba(0,0,0,0.3);
-      }
-      .nav-links a{
-        display: block;
-        font-size: 2rem;
-        margin:3rem 0;
-      }
-    }
-        }
+
+        
 
         @media (max-width: 1200px) {
           .home {
@@ -210,6 +236,9 @@
     }
     .home .home-content h3,h1{
       font-size:4rem;
+      color:  rgb(28, 28, 28);
+
+      line-height: 1.3;
       font-weight: 700;
       margin-bottom: 1rem;
       font-family: 'Exo 2', sans-serif;
@@ -218,6 +247,7 @@
       line-height: 2em;
       text-align: justify;
       font-size: 1.6rem;
+      color:  rgba(28, 28, 28, 0.873);
       padding-right: 5em;
       font-family: 'Exo 2', sans-serif;
     }
@@ -253,7 +283,7 @@
     }
     .icon:hover{
         transform: translateY(-4px);
-        color: #ffe5da;
+        color: #afafaf;
         
     }
     .button1{
@@ -318,21 +348,23 @@
 }
 
 .service-card {
-  
-  background: rgb(255, 108, 29);
+  background: rgb(255, 122, 50);
   padding: 3rem;
   border-radius: 1rem;
   width: 22%;
   color: #fff1ea;
-  border: 2px solid #fff;
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-block; /* ensures transform works properly */
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY();
+  transform: translateY(-10px);
   background: rgba(255, 100, 16, 0.89);
-  box-shadow: 0 10px 20px rgba(255, 130, 95, 0.613); /* slight adjustment */
+  border: 2px solid #ffffffd2;
+  box-shadow: 0 10px 20px rgba(255, 130, 95, 0.613);
 }
+
 
 .service-card svg {
  
@@ -343,7 +375,7 @@
 font-size: 2em;
 font-weight: 700;
 padding: 1em;
-color: #ffe8b6;
+color:  rgb(28, 28, 28);
 font-family: 'Exo 2', sans-serif;
 }
 
@@ -383,7 +415,7 @@ font-family: 'Exo 2', sans-serif;
     font-weight: 700;
     font-family: 'Exo 2', sans-serif;
     padding-bottom: 1em;
-    color: #ffe8b6;;
+    color: #ffe8b6;
 }
 .skill {
   margin-bottom: 2.5rem;
@@ -395,7 +427,12 @@ font-family: 'Exo 2', sans-serif;
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
-  color: #ffe8b6;;
+  font-family: 'Exo 2', sans-serif;
+  color:  rgb(28, 28, 28);
+}
+.skill p span {
+  
+  color:  rgb(28, 28, 28);
 }
 
 .skill-bar {
@@ -419,6 +456,7 @@ font-family: 'Exo 2', sans-serif;
     justify-content: center;
     align-items: center;
     gap: 15em;
+    font-family: 'Exo 2', sans-serif;
     background-color:  rgb(255, 108, 29);
 }
 
@@ -442,6 +480,7 @@ font-family: 'Exo 2', sans-serif;
   padding: 6rem 9%;
   color:#ffe8b6;
   text-align: center;
+  font-family: 'Exo 2', sans-serif;
 }
 
 #skills-pie h6{
@@ -450,6 +489,7 @@ font-family: 'Exo 2', sans-serif;
     font-weight: 600;
     font-family: 'Exo 2', sans-serif;
     padding-bottom: 1.3em;
+    color:  rgb(28, 28, 28);
 }
 
 .pie-charts-container {
@@ -466,12 +506,19 @@ font-family: 'Exo 2', sans-serif;
     align-items: center;
   }
 }
-}
+
 
 .pie-chart {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.pie-chart p{
+  font-size: 1.5em;
+  font-family: 'Exo 2', sans-serif;
+  padding-top: 0.5em;
+  color:  rgb(28, 28, 28);
 }
 
 .circular-chart {
@@ -481,7 +528,7 @@ font-family: 'Exo 2', sans-serif;
 
 .circle-bg {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.1);
+  stroke: rgba(255, 188, 158, 0.281);
   stroke-width: 3.8;
 }
 
@@ -504,18 +551,24 @@ font-family: 'Exo 2', sans-serif;
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="#home" class="logo">ANANDHZ</a>
-    <div class="nav-links">
-      <a href="#home" >Home</a>
-      <a href="#services">Services</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+ <!-- Navbar -->
+<nav class="navbar">
+  <a href="#home" class="logo">ANANDHZ</a>
+  
+  <!-- Hamburger button -->
+  <div class="hamburger" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
   <!-- Home Section -->
   <section class="home" id="home">
@@ -634,21 +687,21 @@ font-family: 'Exo 2', sans-serif;
             <div class="skill"  data-aos="fade-right" data-aos-delay="300">
                 <p>Python <span>85%</span></p>
                 <div class="skill-bar">
-                <div class="skill-fill" data-skill="80%"></div>
+                <div class="skill-fill" data-skill="85%"></div>
                 </div>
             </div>
 
             <div class="skill"  data-aos="fade-right" data-aos-delay="350">
                 <p>Node Js <span>70%</span></p>
                 <div class="skill-bar">
-                <div class="skill-fill" data-skill="80%"></div>
+                <div class="skill-fill" data-skill="70%"></div>
                 </div>
             </div>
 
             <div class="skill"  data-aos="fade-right" data-aos-delay="400">
                 <p>React Js <span>50%</span></p>
                 <div class="skill-bar">
-                <div class="skill-fill" data-skill="80%"></div>
+                <div class="skill-fill" data-skill="50%"></div>
                 </div>
             </div>
         </div>
@@ -760,8 +813,9 @@ font-family: 'Exo 2', sans-serif;
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1000,
-      once: false 
+      duration: 1000, 
+      once: false,    // allow animation to repeat
+      mirror: true 
     });
   </script>
 
@@ -793,20 +847,17 @@ font-family: 'Exo 2', sans-serif;
 
 <script>
 const skillFills = document.querySelectorAll(".skill-fill");
-let skillsAnimated = false; // so it runs only once
 
 function animateSkills() {
-  if (skillsAnimated) return; // prevent repeat
-
   skillFills.forEach(fill => {
     const top = fill.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
+
+    // check if element is in view
     if (top < windowHeight - 50) {
       fill.style.width = fill.getAttribute("data-skill");
     }
   });
-
-  skillsAnimated = true;
 }
 
 window.addEventListener("scroll", animateSkills);
@@ -851,6 +902,15 @@ window.addEventListener("load", animateSkills);
     window.addEventListener("scroll", animateCharts);
     window.addEventListener("load", animateCharts);
 </script>
+
+<script> //navbar toggle
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('show');
+}
+</script>
+
+
 
 </body>
 </html>
