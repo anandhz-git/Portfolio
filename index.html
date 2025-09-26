@@ -1340,17 +1340,17 @@ form button:hover svg {
         <h3  data-aos="fade-in" data-aos-delay="100">Send Message</h3>
         <form>
           <div class="input-group"  data-aos="fade-left" data-aos-delay="150">
-            <input style="border-radius: 1em;" name="user_name"  type="text" id="username" required>
+            <input style="border-radius: 1em;" type="text" id="username" required>
             <label for="username">Name</label>
           </div>
 
           <div class="input-group"  data-aos="fade-left" data-aos-delay="200">
-            <input  style="border-radius: 1em;" name="user_email" type="email" id="email" required>
+            <input  style="border-radius: 1em;"  type="email" id="email" required>
             <label for="email">Email</label>
           </div>
 
           <div class="input-group"  data-aos="fade-left" data-aos-delay="250">
-            <textarea  style="border-radius: 1em;" name="message" id="textarea" rows="5" required></textarea>
+            <textarea  style="border-radius: 1em;" id="textarea" rows="5" required></textarea>
             <label for="textarea">Type your message</label>
           </div>
           <br>
@@ -1365,37 +1365,6 @@ form button:hover svg {
       </div>
     </div>
   </section>
-
-<script>//email
-  // DOM ready not strictly necessary but safe
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contactForm');
-    const submitBtn = form.querySelector('button[type="submit"]');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Sending…';
-
-      // service ID, template ID: replace with your values
-      emailjs.sendForm('service_5otgoag', 'template_mq56h6x', this)
-        .then(function(response) {
-          console.log('SUCCESS!', response.status, response.text);
-          alert('Message sent — thank you!');
-          form.reset();
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-        }, function(error) {
-          console.error('FAILED...', error);
-          alert('Oops — unable to send message. Try again later.');
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-        });
-    });
-  });
-</script>
-
 
   <!-- Image tilt script -->
   <script>
@@ -1525,13 +1494,6 @@ function toggleMenu() {
 }
 </script>
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("-AggglK5Q2l2lvVS5"); // replace with your public key (user_xxx / publicKey)
-  })();
-</script>
 
 
 </body>
