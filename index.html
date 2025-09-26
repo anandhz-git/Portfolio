@@ -172,11 +172,18 @@ section{
       }
     }
     @media (max-width: 992px) {
-      .home {
+      .home{
+        flex-direction: column;
         gap: 3em;
-      }
+        padding: 8em 2% 2em;
+    }
       .home-content {
         width: 100%;
+        padding: 2em 1em 1em 11em;
+  
+      }
+      .home-content h3 , .home-content h1{
+        text-align: left;
       }
       .mainimg img {
         width: 28em;
@@ -191,12 +198,17 @@ section{
       }
       .home-content {
         width: 100%;
+        padding: 4em;
         padding-right: 0;
+        text-align: justify;
         padding-top: 3em;
       }
       .mainimg img {
         width: 18em;
         height: 18em;
+      }
+      .home-content p{
+        
       }
       .home-content h1{
         font-size: 1em;
@@ -205,6 +217,7 @@ section{
     }
     @media (max-width: 576px) {
       .home-content{
+        padding: 3em;
         width: 100%;
         text-align: center;
       }
