@@ -655,7 +655,7 @@ section{
     padding: 8rem 9% 5rem;
     color: #ffe8b6;
     width: 100%;
-    margin-bottom: 5em;
+    margin-bottom: 1em;
     background-color: rgb(255, 108, 29);
 }
 
@@ -980,13 +980,53 @@ form button:hover svg {
 }
 
 
+/* Footer Base */
+.footer {
+  width: 80%;                   /* widened */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 1.5em 0em 1.5em 0em;
+  background: rgb(255, 108, 29);
+  border-top: 0.15em solid rgba(255, 255, 255, 0.49);
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  
+  font-size: 1.5em;
+  color: #ffffff;
+}
+.footer-socials p{
+  padding-left: 2em;
+  paadding-right: 2em;
+}
+
+.footer-socials a {
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+
+.footer-socials a:hover {
+  color: #15191d;
+  letter-spacing: 0.5px;
+}
+
+/* Bottom Section */
+
+
+
+
 
   </style>
 </head>
 <body>
  <!-- Navbar -->
 <nav class="navbar">
-  <a href="#home" class="logo">ANANDHZ</a>
+  <a href="#home" class="logo">PORTFOLIO</a>
   
   <!-- Hamburger button -->
   <div class="hamburger" onclick="toggleMenu()">
@@ -1365,6 +1405,24 @@ form button:hover svg {
       </div>
     </div>
   </section>
+
+  <!-- Responsive Footer -->
+<footer class="footer ">
+
+  <div>
+    <p>&copy 2025 Anand | All Rights Reserved</p>
+  </div>
+
+  <div class="footer-socials">
+    <p>
+      <a href="#">GitHub</a> |
+      <a href="#">LinkedIn</a> |
+      <a href="#">Email</a>
+    </p>
+  </div>
+</footer>
+
+
 
   <!-- Image tilt script -->
   <script>
